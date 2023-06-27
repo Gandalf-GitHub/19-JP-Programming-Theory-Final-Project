@@ -896,9 +896,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameCamera: {fileID: 963194227}
-  renamePanel: {fileID: 0}
-  currentName: {fileID: 0}
-  newNameField: {fileID: 0}
+  renamePanel: {fileID: 224288510}
+  currentName: {fileID: 671952969}
+  newNameField: {fileID: 59164803}
 --- !u!4 &513847881
 Transform:
   m_ObjectHideFlags: 0
@@ -1068,8 +1068,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 30
   rotateSpeed: 100
-  xRange: 20
-  zRange: 20
+  xRange: 40
+  zRange: 40
   marker: {fileID: 2138656674}
   panel: {fileID: 1719295545}
   message: {fileID: 475341413}
@@ -1105,7 +1105,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!1 &594973403 stripped
 GameObject:
@@ -2535,8 +2535,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 30
   rotateSpeed: 100
-  xRange: 20
-  zRange: 20
+  xRange: 40
+  zRange: 40
   marker: {fileID: 1753653916}
   panel: {fileID: 1260890354}
   message: {fileID: 1699438171}
@@ -2572,7 +2572,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!114 &1401472744 stripped
 MonoBehaviour:
@@ -2785,8 +2785,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 30
   rotateSpeed: 100
-  xRange: 20
-  zRange: 20
+  xRange: 40
+  zRange: 40
   marker: {fileID: 382192638}
   panel: {fileID: 2133761811}
   message: {fileID: 955159257}
@@ -2822,7 +2822,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!1 &1591161753 stripped
 GameObject:
@@ -2843,8 +2843,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 30
   rotateSpeed: 100
-  xRange: 20
-  zRange: 20
+  xRange: 40
+  zRange: 40
   marker: {fileID: 594973403}
   panel: {fileID: 1228171205}
   message: {fileID: 1539820730}
@@ -2880,7 +2880,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!1001 &1604143939
 PrefabInstance:
@@ -3296,8 +3296,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 30
   rotateSpeed: 100
-  xRange: 20
-  zRange: 20
+  xRange: 40
+  zRange: 40
   marker: {fileID: 1945952891}
   panel: {fileID: 1366579672}
   message: {fileID: 1401472744}
@@ -3333,7 +3333,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!1 &2047398865
 GameObject:

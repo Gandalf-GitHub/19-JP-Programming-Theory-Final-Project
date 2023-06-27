@@ -72,6 +72,8 @@ public class UserControl : MonoBehaviour
             entity.GetComponent<EntityController>().Selected = false;
             entity.GetComponent<EntityController>().ShowMarker(false);
         }
+
+        selected = null;
     }
 
     // ABSTRACTION
