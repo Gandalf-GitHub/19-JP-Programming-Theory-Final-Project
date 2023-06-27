@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// INHERITANCE
 public class HumanController : EntityController
 {
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class HumanController : EntityController
        
     }
 
+    // POLYMORPHISM
     protected override void SaySomething()
     {
         MessageText = $"Good day!, I am {Name}!";

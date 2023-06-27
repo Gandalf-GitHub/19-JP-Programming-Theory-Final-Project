@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// INHERITANCE
 public class HorseController : EntityController
 {
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class HorseController : EntityController
        
     }
 
+    // POLYMORPHISM
     protected override void SaySomething()
     {
         MessageText = $"My name is {Name}! Weee!";

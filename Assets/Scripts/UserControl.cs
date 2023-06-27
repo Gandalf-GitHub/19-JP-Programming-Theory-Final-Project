@@ -6,6 +6,7 @@ using UnityEngine;
 public class UserControl : MonoBehaviour
 {
     [SerializeField] Camera GameCamera;
+    private float PanSpeed = 10.0f;
     [SerializeField] GameObject renamePanel;
     [SerializeField] TMP_Text currentName;
     [SerializeField] TMP_InputField newNameField;
@@ -32,8 +33,15 @@ public class UserControl : MonoBehaviour
         {
             ShowRenamePanel();
         }
+
+        if (selected == null)
+        {
+            Vector2 move = new Vector2(Input.GetAxis("Vertical"), -Input.GetAxis("Horizontal"));
+            GameCamera.transform.position = GameCamera.transform.position + new Vector3(move.y, 0, -move.x) * PanSpeed * Time.deltaTime;
+        }
     }
 
+    // ABSTRACTION
     public void HandleSelection()
     {
         var ray = GameCamera.ScreenPointToRay(Input.mousePosition);
@@ -56,6 +64,7 @@ public class UserControl : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     public void HandleAction()
     {
         foreach (GameObject entity in GameObject.FindGameObjectsWithTag("Player"))
@@ -65,12 +74,14 @@ public class UserControl : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     void ShowRenamePanel()
     {
         currentName.text = $"Current name: {selected.Name}";
         renamePanel.SetActive(true);
     }
 
+    // ABSTRACTION
     public void RenameCharacter()
     {
         string newName = newNameField.text;

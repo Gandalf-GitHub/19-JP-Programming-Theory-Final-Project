@@ -14,6 +14,7 @@ public abstract class EntityController : MonoBehaviour
     [SerializeField] private GameObject panel;
     [SerializeField] private TMP_Text message;
 
+    // ENCAPSULATION
     private string _name;
     public string Name
     {
@@ -21,6 +22,7 @@ public abstract class EntityController : MonoBehaviour
         set { _name = value; }
     }
 
+    // ENCAPSULATION
     private bool _selected;
     public bool Selected
     {
@@ -28,6 +30,7 @@ public abstract class EntityController : MonoBehaviour
         set { _selected = value; }
     }
 
+    // ENCAPSULATION
     private string messageText;
     public string MessageText
     {
@@ -75,6 +78,9 @@ public abstract class EntityController : MonoBehaviour
             SaySomething();
         }
     }
+
+    // POLYMORPHISM
+    // ABSTRACTION
     protected abstract void SaySomething();
 
     public virtual string GetName()
@@ -82,16 +88,13 @@ public abstract class EntityController : MonoBehaviour
         return _name;
     }
 
-    public virtual string GetDescription()
-    {
-        return "";
-    }
-
+    // ABSTRACTION
     public void ShowMarker(bool show)
     {
         marker.SetActive(show);
     }
 
+    // ABSTRACTION
     public void ShowPanel(bool show)
     {
         message.text = messageText;

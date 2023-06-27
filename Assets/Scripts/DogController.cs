@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+// INHERITANCE
 public class DogController : EntityController
 {
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class DogController : EntityController
        
     }
     
+    // POLYMORPHISM
     protected override void SaySomething()
     {
         MessageText = $"Hi!, my name is {Name}! Wof wof!";

@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     void GameStart()
     {
         introPanel.SetActive(false);
