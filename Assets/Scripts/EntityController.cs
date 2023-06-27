@@ -5,14 +5,16 @@ using UnityEngine;
 
 public abstract class EntityController : MonoBehaviour
 {
-    private float horizontalInput;
-    private float verticalInput;
-    public float speed = 30.0f;
+    private float moveInput;
+    private float rotateInput;
+    public float moveSpeed = 30.0f;
+    public float rotateSpeed = 200.0f;
     [SerializeField] private float xRange = 5.5f;
     [SerializeField] private float zRange = 5.5f;
     [SerializeField] private GameObject marker;
     [SerializeField] private GameObject panel;
     [SerializeField] private TMP_Text message;
+    private Animator entityAnimator;
 
     // ENCAPSULATION
     private string _name;
@@ -42,16 +44,34 @@ public abstract class EntityController : MonoBehaviour
     protected virtual void Start()
     {
         _selected = false;
+        entityAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     protected virtual void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
+        moveInput = Input.GetAxis("Vertical"); 
+        rotateInput = Input.GetAxis("Horizontal");
 
-        transform.Translate(Vector3.left * horizontalInput * Time.deltaTime * speed);
-        transform.Translate(Vector3.back * verticalInput * Time.deltaTime * speed);
+        if (moveInput != 0)
+        {
+            entityAnimator.SetFloat("Speed_f", 1f);
+        }
+        else
+        {
+            entityAnimator.SetFloat("Speed_f", 0f);
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            SaySomething();
+        }
+    }
+
+    void LateUpdate()
+    {
+        transform.Translate(Vector3.forward * moveInput * Time.deltaTime * moveSpeed);
+        transform.Rotate(0f, rotateInput * Time.deltaTime * rotateSpeed, 0f);
 
         if (transform.position.x < -xRange)
         {
@@ -71,11 +91,6 @@ public abstract class EntityController : MonoBehaviour
         if (transform.position.z > zRange)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, zRange);
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            SaySomething();
         }
     }
 
