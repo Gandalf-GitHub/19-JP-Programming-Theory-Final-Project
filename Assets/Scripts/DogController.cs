@@ -10,6 +10,7 @@ public class DogController : EntityController
     protected override void Start()
     {
         base.Start();
+        Name = "Dog";
     }
 
     // Update is called once per frame

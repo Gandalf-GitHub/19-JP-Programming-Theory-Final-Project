@@ -80,6 +80,7 @@ public class UserControl : MonoBehaviour
     void ShowRenamePanel()
     {
         currentName.text = $"Current name: {selected.Name}";
+        newNameField.text = "";
         renamePanel.SetActive(true);
     }
 

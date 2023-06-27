@@ -1068,8 +1068,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 30
   rotateSpeed: 100
-  xRange: 40
-  zRange: 40
+  xRange: 50
+  zRange: 50
   marker: {fileID: 2138656674}
   panel: {fileID: 1719295545}
   message: {fileID: 475341413}
@@ -2533,10 +2533,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad30c54b9f379f4b8f01a197404daed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 30
+  moveSpeed: 20
   rotateSpeed: 100
-  xRange: 40
-  zRange: 40
+  xRange: 50
+  zRange: 50
   marker: {fileID: 1753653916}
   panel: {fileID: 1260890354}
   message: {fileID: 1699438171}
@@ -2783,7 +2783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34d167309585ded4a8cfd9aa2f8b0641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 30
+  moveSpeed: 15
   rotateSpeed: 100
   xRange: 40
   zRange: 40
@@ -2841,7 +2841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34d167309585ded4a8cfd9aa2f8b0641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 30
+  moveSpeed: 10
   rotateSpeed: 100
   xRange: 40
   zRange: 40
@@ -3294,10 +3294,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39384aeba5c1df04099fbb6494c84b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 30
+  moveSpeed: 25
   rotateSpeed: 100
-  xRange: 40
-  zRange: 40
+  xRange: 50
+  zRange: 50
   marker: {fileID: 1945952891}
   panel: {fileID: 1366579672}
   message: {fileID: 1401472744}
