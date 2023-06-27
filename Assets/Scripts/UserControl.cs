@@ -11,6 +11,7 @@ public class UserControl : MonoBehaviour
     [SerializeField] TMP_Text currentName;
     [SerializeField] TMP_InputField newNameField;
     private EntityController selected = null;
+    private bool onEdit = false;
 
     private void Start()
     {
@@ -29,8 +30,9 @@ public class UserControl : MonoBehaviour
             HandleAction();
         }
 
-        if (selected != null && Input.GetKeyDown(KeyCode.R))
+        if (selected != null && Input.GetKeyDown(KeyCode.R) && !onEdit)
         {
+            onEdit = true;
             ShowRenamePanel();
         }
 
@@ -79,8 +81,8 @@ public class UserControl : MonoBehaviour
     // ABSTRACTION
     void ShowRenamePanel()
     {
-        currentName.text = $"Current name: {selected.Name}";
         newNameField.text = "";
+        currentName.text = $"Current name: {selected.Name}";
         renamePanel.SetActive(true);
     }
 
@@ -95,5 +97,6 @@ public class UserControl : MonoBehaviour
         }
 
         renamePanel.SetActive(false);
+        onEdit = false;
     }
 }
