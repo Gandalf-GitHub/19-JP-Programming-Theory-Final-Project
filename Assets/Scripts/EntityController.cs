@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class CharacterController : MonoBehaviour
+public abstract class EntityController : MonoBehaviour
 {
     private float horizontalInput;
     private float verticalInput;
     public float speed = 30.0f;
     [SerializeField] private float xRange = 5.5f;
     [SerializeField] private float zRange = 5.5f;
+    [SerializeField] private GameObject marker;
 
     private string _name;
     public string Name
@@ -16,15 +17,24 @@ public abstract class CharacterController : MonoBehaviour
         get { return _name; }
         set { _name = value; }
     }
+
+    private bool _selected;
+    public bool Selected
+    {
+        get { return _selected; }
+        set { _selected = value; }
+    }
+    
     
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
-        
+        _selected = false;
+        marker.SetActive(false);
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
@@ -62,5 +72,10 @@ public abstract class CharacterController : MonoBehaviour
     public virtual string GetDescription()
     {
         return "";
+    }
+
+    public void ShowMarker(bool show)
+    {
+        marker.SetActive(show);
     }
 }

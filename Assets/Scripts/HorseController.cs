@@ -2,18 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HorseController : CharacterController
+public class HorseController : EntityController
 {
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        
+        base.Start();
+        Name = "Horse";
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-        
+        if (Selected)
+        {
+            base.Update();
+        }
+       
     }
 
     protected override void SaySomething()
