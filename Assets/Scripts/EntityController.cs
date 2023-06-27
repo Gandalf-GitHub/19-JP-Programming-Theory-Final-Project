@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public abstract class EntityController : MonoBehaviour
@@ -10,6 +11,8 @@ public abstract class EntityController : MonoBehaviour
     [SerializeField] private float xRange = 5.5f;
     [SerializeField] private float zRange = 5.5f;
     [SerializeField] private GameObject marker;
+    [SerializeField] private GameObject panel;
+    [SerializeField] private TMP_Text message;
 
     private string _name;
     public string Name
@@ -24,13 +27,18 @@ public abstract class EntityController : MonoBehaviour
         get { return _selected; }
         set { _selected = value; }
     }
-    
+
+    private string messageText;
+    public string MessageText
+    {
+        get { return messageText; }
+        set { messageText = value; }
+    }
     
     // Start is called before the first frame update
     protected virtual void Start()
     {
         _selected = false;
-        marker.SetActive(false);
     }
 
     // Update is called once per frame
@@ -61,6 +69,11 @@ public abstract class EntityController : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, zRange);
         }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            SaySomething();
+        }
     }
     protected abstract void SaySomething();
 
@@ -77,5 +90,18 @@ public abstract class EntityController : MonoBehaviour
     public void ShowMarker(bool show)
     {
         marker.SetActive(show);
+    }
+
+    public void ShowPanel(bool show)
+    {
+        message.text = messageText;
+        panel.SetActive(show);
+        StartCoroutine("DisablePanel");
+    }
+
+    IEnumerator DisablePanel()
+    {
+        yield return new WaitForSeconds(4);
+        panel.SetActive(false);
     }
 }

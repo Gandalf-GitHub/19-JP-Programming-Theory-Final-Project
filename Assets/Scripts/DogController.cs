@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DogController : EntityController
@@ -22,6 +23,7 @@ public class DogController : EntityController
     
     protected override void SaySomething()
     {
-        throw new System.NotImplementedException();
+        MessageText = $"Hi!, my name is {Name}! Wof wof!";
+        ShowPanel(true);
     }
 }

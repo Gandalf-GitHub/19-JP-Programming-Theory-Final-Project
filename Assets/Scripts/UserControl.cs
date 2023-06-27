@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UserControl : MonoBehaviour
 {
     [SerializeField] Camera GameCamera;
-    private EntityController m_Selected = null;
+    [SerializeField] GameObject renamePanel;
+    [SerializeField] TMP_Text currentName;
+    [SerializeField] TMP_InputField newNameField;
+    private EntityController selected = null;
 
     private void Start()
     {
@@ -19,11 +23,15 @@ public class UserControl : MonoBehaviour
         {
             HandleSelection();
         }
-        else if (m_Selected != null && Input.GetMouseButtonDown(1))
+        else if (selected != null && Input.GetMouseButtonDown(1))
         {//right click give order to the unit
             HandleAction();
         }
 
+        if (selected != null && Input.GetKeyDown(KeyCode.R))
+        {
+            ShowRenamePanel();
+        }
     }
 
     public void HandleSelection()
@@ -39,16 +47,10 @@ public class UserControl : MonoBehaviour
                     entity.GetComponent<EntityController>().Selected = false;
                     entity.GetComponent<EntityController>().ShowMarker(false);
                 }
-                //the collider could be children of the unit, so we make sure to check in the parent
-                var character = hit.collider.GetComponentInParent<EntityController>();
-                m_Selected = character;
-                character.Selected = true;
-                character.ShowMarker(true);
                 
-                //check if the hit object have a IUIInfoContent to display in the UI
-                //if there is none, this will be null, so this will hid the panel if it was displayed
-                // var uiInfo = hit.collider.GetComponentInParent<UIMainScene.IUIInfoContent>();
-                // UIMainScene.Instance.SetNewInfoContent(uiInfo);
+                selected = hit.collider.GetComponentInParent<EntityController>();
+                selected.Selected = true;
+                selected.ShowMarker(true);
             }
             
         }
@@ -56,20 +58,28 @@ public class UserControl : MonoBehaviour
 
     public void HandleAction()
     {
-        var ray = GameCamera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        foreach (GameObject entity in GameObject.FindGameObjectsWithTag("Player"))
         {
-            // var building = hit.collider.GetComponentInParent<Building>();
-            
-            // if (building != null)
-            // {
-            //     m_Selected.GoTo(building);
-            // }
-            // else
-            // {
-            //     m_Selected.GoTo(hit.point);
-            // }
+            entity.GetComponent<EntityController>().Selected = false;
+            entity.GetComponent<EntityController>().ShowMarker(false);
         }
+    }
+
+    void ShowRenamePanel()
+    {
+        currentName.text = $"Current name: {selected.Name}";
+        renamePanel.SetActive(true);
+    }
+
+    public void RenameCharacter()
+    {
+        string newName = newNameField.text;
+
+        if (!string.IsNullOrEmpty(newName) && !string.IsNullOrWhiteSpace(newName))
+        {
+            selected.Name = newName;
+        }
+
+        renamePanel.SetActive(false);
     }
 }

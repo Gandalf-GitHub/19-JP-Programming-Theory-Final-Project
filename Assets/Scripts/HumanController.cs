@@ -23,6 +23,7 @@ public class HumanController : EntityController
 
     protected override void SaySomething()
     {
-        throw new System.NotImplementedException();
+        MessageText = $"Good day!, I am {Name}!";
+        ShowPanel(true);
     }
 }

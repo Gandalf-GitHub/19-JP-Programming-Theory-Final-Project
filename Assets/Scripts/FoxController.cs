@@ -23,6 +23,7 @@ public class FoxController : EntityController
 
     protected override void SaySomething()
     {
-        throw new System.NotImplementedException();
+        MessageText = $"Hello there!, my name is {Name}!";
+        ShowPanel(true);
     }
 }

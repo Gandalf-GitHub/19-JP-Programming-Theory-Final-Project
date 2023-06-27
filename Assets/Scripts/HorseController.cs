@@ -23,6 +23,7 @@ public class HorseController : EntityController
 
     protected override void SaySomething()
     {
-        throw new System.NotImplementedException();
+        MessageText = $"My name is {Name}! Weee!";
+        ShowPanel(true);
     }
 }
